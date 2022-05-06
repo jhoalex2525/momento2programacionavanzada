@@ -25,6 +25,10 @@ const Reserva=new Schema({
     numeroPersonas:{
         type:Number,
         required:true
+    },
+    idHabitacion:{
+        type:Number,
+        required:true
     }
 })
 
