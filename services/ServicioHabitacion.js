@@ -9,7 +9,7 @@ export class ServicioHabitacion{
     }
     
     async buscarPorId(id){
-        return(await modeloHabitacion.findById())
+        return(await modeloHabitacion.findById(id))
     }
     
     async registrar(datosPeticion){        
