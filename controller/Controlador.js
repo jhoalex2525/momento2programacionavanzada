@@ -16,7 +16,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal",
+                mensaje: "Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -36,7 +36,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal",
+                mensaje: "Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -57,7 +57,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal",
+                mensaje: "Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -80,7 +80,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal",
+                mensaje: "Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -100,7 +100,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal",
+                mensaje: "Algo salió mal " + error,
                 data: [],
                 estado: false
             })
