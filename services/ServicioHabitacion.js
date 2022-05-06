@@ -21,6 +21,6 @@ export class ServicioHabitacion{
     }
 
     async eliminar(id){
-        return(await modeloHabitacion.findByIdAndDelete())
+        return(await modeloHabitacion.findByIdAndDelete(id))
     }
 }
