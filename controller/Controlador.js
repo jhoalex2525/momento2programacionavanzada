@@ -57,7 +57,7 @@ export class Controlador {
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió malsfgsdfg",
+                mensaje: "Algo salió mal",
                 data: [],
                 estado: false
             })
