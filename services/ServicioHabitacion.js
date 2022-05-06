@@ -5,18 +5,15 @@ export class ServicioHabitacion{
     constructor(){}
 
     async buscarTodos(){
-        let habitaciones=await modeloHabitacion.find()
-        return habitaciones        
+        return(await modeloHabitacion.find())                
     }
     
     async buscarPorId(id){
-        let habitacion=await modeloHabitacion.findById()
-        return habitacion
+        return(await modeloHabitacion.findById())
     }
     
-    async registrar(datosPeticion){
-        let habitacionARegistrar=new modeloHabitacion(datosPeticion)
-        return(await habitacionARegistrar.save())
+    async registrar(datosPeticion){        
+        return(await new modeloHabitacion(datosPeticion).save())
     }
 
     async editar(id,datosPeticion){
