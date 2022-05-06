@@ -22,8 +22,8 @@ rutas.put('/API/v1/editarHabitacion/:id', controladorHabitacion.editar)
 rutas.delete('/API/v1/eliminarHabitacion/:id', controladorHabitacion.eliminar)
 
 // DEFINO MIS RUTAS RESERVA
-rutas.get('/API/v1/buscarTodosReserva', controladorHabitacion.buscarTodos)
-rutas.get('/API/v1/buscarIdReserva/:id', controladorHabitacion.buscarPorId)
-rutas.post('/API/v1/insertarReserva', controladorHabitacion.insertar)
-rutas.put('/API/v1/editarReserva/:id', controladorHabitacion.editar)
-rutas.delete('/API/v1/eliminarReserva/:id', controladorHabitacion.eliminar)
+rutas.get('/API/v1/buscarTodosReserva', controladorReserva.buscarTodos)
+rutas.get('/API/v1/buscarIdReserva/:id', controladorReserva.buscarPorId)
+rutas.post('/API/v1/insertarReserva', controladorReserva.insertar)
+rutas.put('/API/v1/editarReserva/:id', controladorReserva.editar)
+rutas.delete('/API/v1/eliminarReserva/:id', controladorReserva.eliminar)
