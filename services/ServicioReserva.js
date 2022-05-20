@@ -1,46 +1,26 @@
 // Importamos el modelo de datos
 import { modeloReserva } from "../models/reservaModelo.js"
 
-class ServicioReserva{
+export class ServicioReserva{
     constructor(){}
 
     async buscarTodos(){
-        try{            
-            return(await modeloReserva.find())
-        }catch(error){
-            console.log("Ha fallado la busqueda "+error)
-        }
+        return(await modeloReserva.find())                
     }
     
     async buscarPorId(id){
-        try{            
-            return(await modeloReserva.findById())
-        }catch(error){
-            console.log("Falló la busqueda por id "+error)
-        }
+        return(await modeloReserva.findById(id))
     }
     
-    async registrar(datosPeticion){
-        try{            
-            return(await new modeloReserva(datosPeticion).save())
-        }catch(error){
-            console.log("Error registrando "+error)
-        }
+    async registrar(datosPeticion){        
+        return(await new modeloReserva(datosPeticion).save())
     }
 
     async editar(id,datosPeticion){
-        try{
-            return(await modeloReserva.findByIdAndUpdate(id,datosPeticion))
-        }catch(error){
-            console.log("Fallo en la edicion "+error)
-        }
+        return(await modeloReserva.findByIdAndUpdate(id,datosPeticion))
     }
 
     async eliminar(id){
-        try{
-            return(await modeloReserva.findByIdAndDelete())
-        }catch(error){
-            console.log("Fallo el eliminar "+error)
-        }
+        return(await modeloReserva.findByIdAndDelete(id))
     }
 }

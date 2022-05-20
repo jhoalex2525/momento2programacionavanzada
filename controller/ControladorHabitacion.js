@@ -10,13 +10,13 @@ export class ControladorHabitacion {
         let servicio=new ServicioHabitacion()
         try {
             response.status(200).json({
-                mensaje: "Exito en la busqueda",
+                mensaje: "Desde Controlador Habitación, Exito en la busqueda",
                 data: await servicio.buscarTodos(),
                 estado: true
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal " + error,
+                mensaje: "Desde Controlador Habitación, Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -25,18 +25,18 @@ export class ControladorHabitacion {
 
     async buscarPorId(request, response) {
         let id = request.params.id //capturo el id que llega por la URL
-        console.log("El id solicitado es: " + id)
+        console.log("Desde Controlador Habitación, El id solicitado es: " + id)
         // Se instancia la clase SERVICIO
         let servicio=new ServicioHabitacion()
         try {
             response.status(200).json({
-                mensaje: "Exito en la busqueda especificada " + id,
+                mensaje: "Desde Controlador Habitación, Exito en la busqueda especificada " + id,
                 data: await servicio.buscarPorId(id),
                 estado: true
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal " + error,
+                mensaje: "Desde Controlador Habitación, Algo salió mal " + error,
                 data: [],
                 estado: false
             })
@@ -51,13 +51,13 @@ export class ControladorHabitacion {
         try {
             await servicio.registrar(datosPeticion)
             response.status(200).json({
-                mensaje: "Exito agregando nuevo registro",
+                mensaje: "Desde Controlador Habitación, Exito agregando nuevo registro",
                 data: datosPeticion,
                 estado: true
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal " + error,
+                mensaje: "Desde Controlador Habitación, Algo salió mal agregando " + error,
                 data: [],
                 estado: false
             })
@@ -68,19 +68,19 @@ export class ControladorHabitacion {
         let id = request.params.id //capturo el id que llega por la URL
         let datosPeticion = request.body
         console.log(datosPeticion)
-        console.log("El id solicitado es: " + id)
+        console.log("Desde Controlador Habitación, El id solicitado es: " + id)
         // Se instancia la clase SERVICIO
         let servicio=new ServicioHabitacion()
         try {
             await servicio.editar(id,datosPeticion)
             response.status(200).json({
-                mensaje: "Exito Editando el registro",
+                mensaje: "Desde Controlador Habitación, Exito Editando el registro",
                 data: datosPeticion,
                 estado: true
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal " + error,
+                mensaje: "Desde Controlador Habitación, Algo salió mal editando " + error,
                 data: [],
                 estado: false
             })
@@ -94,13 +94,13 @@ export class ControladorHabitacion {
         try {
             await servicio.eliminar(id)
             response.status(200).json({
-                mensaje: "Exito eliminando el registro",
+                mensaje: "Desde Controlador Habitación, Exito eliminando el registro",
                 data: null,
                 estado: true
             })
         } catch (error) {
             response.status(400).json({
-                mensaje: "Algo salió mal " + error,
+                mensaje: "Desde Controlador Habitación, Algo salió mal eliminando " + error,
                 data: [],
                 estado: false
             })

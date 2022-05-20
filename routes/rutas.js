@@ -3,7 +3,7 @@
 import express from 'express'
 
 import {ControladorHabitacion} from '../controller/ControladorHabitacion.js'
-import {ControladorReserva} from '../controller/ControladorReserva'
+import {ControladorReserva} from '../controller/ControladorReserva.js'
 // Una variable para almacenar
 // La funcionalidad de express Router
 // que es la que me permite personalizar y separar RUTAS
@@ -24,6 +24,6 @@ rutas.delete('/API/v1/eliminarHabitacion/:id', controladorHabitacion.eliminar)
 // DEFINO MIS RUTAS RESERVA
 rutas.get('/API/v1/buscarTodosReserva', controladorReserva.buscarTodos)
 rutas.get('/API/v1/buscarIdReserva/:id', controladorReserva.buscarPorId)
-rutas.post('/API/v1/insertarReserva', controladorReserva.insertar)
+rutas.post('/API/v1/insertarReserva', controladorReserva.insertar) //probando
 rutas.put('/API/v1/editarReserva/:id', controladorReserva.editar)
 rutas.delete('/API/v1/eliminarReserva/:id', controladorReserva.eliminar)
