@@ -1,5 +1,6 @@
 // En el controlador se importan los servicios
 import { ServicioReserva } from "../services/ServicioReserva.js"
+import { ServicioHabitacion } from "../services/ServicioHabitacion.js"
 
 export class ControladorReserva {
 
@@ -45,10 +46,20 @@ export class ControladorReserva {
 
     async insertar(request, response) {
         let datosPeticion = request.body
+        let id = request.params.id
         console.log(datosPeticion)
         // Se instancia la clase SERVICIO
         let servicio=new ServicioReserva()
+        let servicioHabitacion = new ServicioHabitacion
         try {
+
+            let costohabitacion = await servicioHabitacion.buscarPorId(id)            
+            let diaOut = new Date(datosPeticion.fechaOut)
+            let diaIn = new Date(datosPeticion.fechaIn)
+            let dias = (diaOut.getTime() - diaIn.getTime())/(1000*60*60*24)            
+            let calculoCosto = dias * costohabitacion.precio * datosPeticion.numeroPersonas
+            datosPeticion.costo = calculoCosto
+            datosPeticion.idHabitacion = id
             await servicio.registrar(datosPeticion)
             response.status(200).json({
                 mensaje: "Desde Controlador Reserva, Exito agregando nuevo registro",
@@ -65,13 +76,30 @@ export class ControladorReserva {
     }
 
     async editar(request, response) {
-        let id = request.params.id //capturo el id que llega por la URL
-        let datosPeticion = request.body
-        console.log(datosPeticion)
-        console.log("Desde Controlador Reserva, El id solicitado es: " + id)
         // Se instancia la clase SERVICIO
         let servicio=new ServicioReserva()
+        let id = request.params.id //capturo el id que llega por la URL
+        let idReserva = await servicio.buscarPorId(id)
+        let idHabitacion = idReserva.idHabitacion
+        let datosPeticion = request.body
+        console.log(datosPeticion)        
+        let personas = ""
+        let servicioHabitacion = new ServicioHabitacion
         try {
+            let costohabitacion = await servicioHabitacion.buscarPorId(idHabitacion)            
+            let diaOut = new Date(idReserva.fechaOut)
+            let diaIn = new Date(idReserva.fechaIn)
+            let dias = (diaOut.getTime() - diaIn.getTime())/(1000*60*60*24)
+            if(datosPeticion.numeroPersonas==""){
+                personas = idReserva.numeroPersonas
+                datosPeticion.numeroPersonas = personas
+            }
+            else{
+                personas = datosPeticion.numeroPersonas
+            }
+            let calculoCosto = dias * costohabitacion.precio * personas
+            datosPeticion.costo = calculoCosto
+            datosPeticion.idHabitacion = idHabitacion
             await servicio.editar(id,datosPeticion)
             response.status(200).json({
                 mensaje: "Desde Controlador Reserva, Exito Editando el registro",
