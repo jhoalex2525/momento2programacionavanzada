@@ -2,8 +2,8 @@
 // Importando express
 import express from 'express'
 
-import {ControladorHabitacion} from '../controller/ControladorHabitacion.js'
-import {ControladorReserva} from '../controller/ControladorReserva.js'
+import { ControladorHabitacion } from '../controller/ControladorHabitacion.js'
+import { ControladorReserva } from '../controller/ControladorReserva.js'
 // Una variable para almacenar
 // La funcionalidad de express Router
 // que es la que me permite personalizar y separar RUTAS
@@ -12,7 +12,7 @@ import {ControladorReserva} from '../controller/ControladorReserva.js'
 let controladorHabitacion = new ControladorHabitacion()
 let controladorReserva = new ControladorReserva()
 
-export let rutas=express.Router()
+export let rutas = express.Router()
 
 // DEFINO MIS RUTAS HABITACIÓN
 rutas.get('/API/v1/buscarTodosHabitacion', controladorHabitacion.buscarTodos)

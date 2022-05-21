@@ -7,7 +7,7 @@ export class ControladorHabitacion {
 
     async buscarTodos(request, response) {
         // Se instancia la clase SERVICIO
-        let servicio=new ServicioHabitacion()
+        let servicio = new ServicioHabitacion()
         try {
             response.status(200).json({
                 mensaje: "Desde Controlador Habitación, Exito en la busqueda",
@@ -27,7 +27,7 @@ export class ControladorHabitacion {
         let id = request.params.id //capturo el id que llega por la URL
         console.log("Desde Controlador Habitación, El id solicitado es: " + id)
         // Se instancia la clase SERVICIO
-        let servicio=new ServicioHabitacion()
+        let servicio = new ServicioHabitacion()
         try {
             response.status(200).json({
                 mensaje: "Desde Controlador Habitación, Exito en la busqueda especificada " + id,
@@ -47,7 +47,7 @@ export class ControladorHabitacion {
         let datosPeticion = request.body
         console.log(datosPeticion)
         // Se instancia la clase SERVICIO
-        let servicio=new ServicioHabitacion()
+        let servicio = new ServicioHabitacion()
         try {
             await servicio.registrar(datosPeticion)
             response.status(200).json({
@@ -70,9 +70,9 @@ export class ControladorHabitacion {
         console.log(datosPeticion)
         console.log("Desde Controlador Habitación, El id solicitado es: " + id)
         // Se instancia la clase SERVICIO
-        let servicio=new ServicioHabitacion()
+        let servicio = new ServicioHabitacion()
         try {
-            await servicio.editar(id,datosPeticion)
+            await servicio.editar(id, datosPeticion)
             response.status(200).json({
                 mensaje: "Desde Controlador Habitación, Exito Editando el registro",
                 data: datosPeticion,
@@ -90,7 +90,7 @@ export class ControladorHabitacion {
     async eliminar(request, response) {
         let id = request.params.id //capturo el id que llega por la URL
         // Se instancia la clase SERVICIO
-        let servicio=new ServicioHabitacion()
+        let servicio = new ServicioHabitacion()
         try {
             await servicio.eliminar(id)
             response.status(200).json({

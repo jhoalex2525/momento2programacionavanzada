@@ -41,7 +41,7 @@ export class Servidor { //Se agrega export para ponerlo disponible a todo el pro
         this.app.use(express.json())
     }
 
-    conectarConBD(){
+    conectarConBD() {
         conectar()
     }
 }
